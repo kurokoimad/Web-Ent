@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    /* Add some basic styling for the pagination */
+    .pagination {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    .pagination li {
+      margin: 0 5px;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .pagination a.active {
+      background-color: #4caf50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>vorname</th>
+      <th>geschlecht</th>
+    </tr>
+    <% profile.forEach(function(data){ %>
+      <!-- for loop on all the data from DB -->
+      <tr>
+        <td><%= data.vorname %></td>
+        <td><%= data.geschlecht %></td>
+      </tr>
+    <% }); %>
+  </table>
+
+  <!-- Pagination controls -->
+  <ul class="pagination">
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <li><a href="#" class="<%= currentPage === i ? 'active' : '' %>" onclick="changePage(<%= i %>)"><%= i %></a></li>
+    <% } %>
+  </ul>
+
+  <script>
+    // JavaScript function to handle page changes
+    function changePage(page) {
+      window.location.href = '?page=' + page;
+    }
+  </script>
+</body>
+</html>
