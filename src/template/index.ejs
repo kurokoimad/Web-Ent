@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../public/style.css" />
   <title>Document</title>
   <style>
     /* Add some basic styling for the pagination */
@@ -31,29 +32,59 @@
   </style>
 </head>
 <body>
-  <table>
-    <tr>
-      <th>vorname</th>
-      <th>geschlecht</th>
-    </tr>
-    <% profile.forEach(function(data){ %>
-      <!-- for loop on all the data from DB -->
+  <div class="header">Finde den perfekten Babynamen</div>
+  <div class="background-box"></div>
+  <div class="container">
+    <div class="box">
+      <h2>Nach Geschlecht suchen</h2>
+      <div class="sub-box">männlich</div>
+      <div class="sub-box">weiblich</div>
+    </div>
+    <div class="box">
+      <h2>Nach Präfix suchen</h2>
+      <div class="search-box">
+        <input type="text" placeholder="Präfix eingeben...">
+      </div>
+    </div>
+    <div class="box">
+      <h2>Nach Suffix suchen</h2>
+      <div class="search-box">
+        <input type="text" placeholder="Suffix eingeben...">
+      </div>
+    </div>
+    <div class="box">
+      <h2>Nach Silbenanzahl suchen</h2>
+      <div class="sub-box">1</div>
+      <div class="sub-box">2</div>
+      <div class="sub-box">3</div>
+      <div class="sub-box">4</div>
+    </div>
+  </div>
+  <br>
+  <div class="result-box">
+    <h2>Resultat</h2><table>
       <tr>
-        <td><%= data.vorname %></td>
-        <td><%= data.geschlecht %></td>
+        <th>vorname</th>
+        <th>geschlecht</th>
       </tr>
-    <% }); %>
-  </table>
+      <% profile.forEach(function(data){ %>
+        <tr>
+          <td><%= data.vorname %></td>
+          <td><%= data.geschlecht %></td>
+        </tr>
+      <% }); %>
+    </table>
+  
+    <ul class="pagination">
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <li><a href="#" class="<%= currentPage === i ? 'active' : '' %>" onclick="changePage(<%= i %>)"><%= i %></a></li>
+      <% } %>
+    </ul>
+  </div>
 
-  <!-- Pagination controls -->
-  <ul class="pagination">
-    <% for (let i = 1; i <= totalPages; i++) { %>
-      <li><a href="#" class="<%= currentPage === i ? 'active' : '' %>" onclick="changePage(<%= i %>)"><%= i %></a></li>
-    <% } %>
-  </ul>
+
 
   <script>
-    // JavaScript function to handle page changes
     function changePage(page) {
       window.location.href = '?page=' + page;
     }
