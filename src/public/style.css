@@ -103,7 +103,7 @@ body {
   height: 1cm;
   border-radius: 50%;
   background-color: #8b0000;
-  background-image: url('../Pictures/suchsymbol.png');
+  background-image: url('suchsymbol.png');
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
@@ -162,3 +162,26 @@ body {
   font-weight: 700;
   margin: 0;
 }
+/* Add some basic styling for the pagination */
+    .pagination {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    .pagination li {
+      margin: 0 5px;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .pagination a.active {
+      background-color: #8b0000;
+      color: white;
+    }

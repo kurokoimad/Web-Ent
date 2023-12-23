@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const profilesRoutes = require('./Routes/profiles.routes');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -13,7 +14,9 @@ app.use(
   })
 );
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Pictures')));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
