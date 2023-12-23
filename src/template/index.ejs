@@ -13,8 +13,9 @@
   <div class="container">
     <div class="box">
       <h2>Nach Geschlecht suchen</h2>
-      <div class="sub-box">männlich</div>
-      <div class="sub-box">weiblich</div>
+      <div class="sub-box" onclick="filterByGender('m')">männlich</div>
+      <div class="sub-box" onclick="filterByGender('w')">weiblich</div>
+      <div class="sub-box" onclick="filterByGender('all')">all</div>
     </div>
     <div class="box">
       <h2>Nach Präfix suchen</h2>
@@ -62,8 +63,19 @@
 
   <script>
     function changePage(page) {
-      window.location.href = '?page=' + page;
-    }
+    // Include the current gender filter in the URL
+    window.location.href = `?page=${page}&gender=${currentGenderFilter || ''}`;
+  }
+
+  function filterByGender(gender) {
+    // Update the currentGenderFilter variable
+    currentGenderFilter = gender;
+    // Redirect to the first page with the selected gender filter
+    window.location.href = `?page=1&gender=${currentGenderFilter || ''}`;
+  }
+
+  // Initialize the currentGenderFilter variable only if it's not null or undefined
+  let currentGenderFilter = '<%= currentGenderFilter !== null && typeof currentGenderFilter !== "undefined" ? currentGenderFilter : "" %>';
   </script>
 </body>
 </html>
