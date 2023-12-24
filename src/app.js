@@ -14,8 +14,7 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, 'static')));
-app.use(express.static(path.join(__dirname, 'less')));
+app.use(express.static(path.join(__dirname, 'lib/frontend/css')));
 app.use(express.static(path.join(__dirname, 'static/Pictures')));
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -8,7 +8,7 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "build_js": "esbuild src/bundle/entry.js --bundle --outdir=dist --minify --platform=node",
-    "build_css": "npx lessc --clean-css src/less/style.less dist/style.css",
+    "build_css": "npx lessc --clean-css src/lib/frontend/css/style.less dist/style.css",
     "build": "npm run build_js && npm run build_css",
     "clean": "rimraf dist",
     "lint": "semistandard --fix",
