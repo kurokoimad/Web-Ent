@@ -1,5 +1,5 @@
 const server = require('./app');
-require('./config/db');
+require('./lib/server/db');
 
 const PORT = 8080;
 

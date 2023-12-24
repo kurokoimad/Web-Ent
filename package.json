@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "build": "babel src -d dist",
+    "build": "esbuild src/bundle/entry.js --bundle --outdir=dist --minify --platform=node",
     "clean": "rimraf dist",
     "lint": "semistandard --fix",
     "initdb": "node src/config/db.js",

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const profilesRoutes = require('./Routes/profiles.routes');
+const profilesRoutes = require('./lib/server/profiles.routes');
 const cors = require('cors');
 const path = require('path');
 
@@ -14,9 +14,9 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'Pictures')));
-
+app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'less')));
+app.use(express.static(path.join(__dirname, 'static/Pictures')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

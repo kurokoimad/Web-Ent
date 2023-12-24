@@ -1,7 +1,6 @@
-const Profile = require('./../models/profile.js');
+const Profile = require('./profile.js');
 // profile Controller is here to call out the logic
 // instead of writing it in profiles.routes.js router.get('/')
-
 
 exports.index = async (req, res) => {
   try {
@@ -33,4 +32,3 @@ exports.index = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
-
