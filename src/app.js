@@ -15,7 +15,7 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, 'lib/frontend/css')));
-app.use(express.static(path.join(__dirname, 'static/Pictures')));
+app.use(express.static(path.join(__dirname, 'lib/frontend/Pictures')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
