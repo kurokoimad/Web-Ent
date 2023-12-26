@@ -20,7 +20,6 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url(https://st4.depositphotos.com/5097585/30827/v/1600/depositphotos_308279880-stock-illustration-seamless-baby-pattern-babies-and.jpg);
-  /* Füge die URL zum gewünschten Hintergrundbild ein */
   background-size: cover;
   background-position: center;
   overflow-y: auto;
@@ -163,7 +162,6 @@ body {
   margin: 0;
 }
 
-/* Add some basic styling for the pagination */
 .pagination {
   display: flex;
   list-style: none;
