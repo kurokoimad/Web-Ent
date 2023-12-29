@@ -8,13 +8,12 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "build_js": "esbuild src/bundle/entry.js --bundle --outdir=dist --minify --platform=node",
-    "build_css": "npx lessc --clean-css src/lib/frontend/css/style.less dist/style.css",
-    "build": "npm run build_js && npm run build_css",
+    "build_css": "lessc --clean-css src/lib/frontend/css/style.less dist/style.css",
+    "build": "npm run lint && semistandard --fix --error-on-unmatched-pattern && babel src -d dist && npm run build_js && npm run build_css",
     "clean": "rimraf dist",
     "lint": "semistandard --fix",
     "initdb": "node src/lib/server/db.js",
-    "debug": "node src/lib/server/debug.js",
-    "debud": "npm run lint && (node src/lib/server/debug.js || echo 'Debugging failed. Project creation canceled.')"
+    "debug": "npm run lint && semistandard --fix --error-on-unmatched-pattern && (babel src -d dist || echo 'Debugging failed. Project creation canceled.')"
   },
   "repository": {
     "type": "git",
@@ -43,4 +42,5 @@
     "esbuild": "0.19.10",
     "less-plugin-clean-css": "^1.5.1"
   }
+  
 }

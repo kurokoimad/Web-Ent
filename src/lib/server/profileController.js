@@ -28,7 +28,6 @@ exports.index = async (req, res) => {
     });
   } catch (error) {
     console.log('my Error', error);
-    // Handle the error appropriately (send an error response, log, etc.)
     res.status(500).send('Internal Server Error');
   }
 };
